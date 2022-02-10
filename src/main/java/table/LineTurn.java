@@ -14,7 +14,8 @@ public class LineTurn {
     private int turnNumber;
 
     public float getDistance(){
+
         //1 lượt gồm lượt đi lượt về
-        return line.getDistance()*turnNumber*2;
+        return line.getDistance() * turnNumber * 2;
     }
 }
