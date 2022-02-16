@@ -1,12 +1,12 @@
 package dao;
 
-import entity.Drivers;
+import entity.Driver;
 
 import java.util.List;
 
 public interface DriverDao {
 
-    void addNewDriver (Drivers drivers);
+    void addNewDriver (Driver drivers);
 
-    List<Drivers> getAll ();
+    List<Driver> getAll ();
 }

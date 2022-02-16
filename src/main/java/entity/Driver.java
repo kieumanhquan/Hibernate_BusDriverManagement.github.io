@@ -12,7 +12,8 @@ import java.util.Scanner;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Drivers implements Serializable {
+@Table(name = "drivers")
+public class Driver implements Serializable {
 
     @Id
     @Column(nullable = false)

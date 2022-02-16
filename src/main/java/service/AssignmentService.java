@@ -3,7 +3,7 @@ package service;
 import table.AssignmentTable;
 import table.LineTurn;
 import entity.Assignment;
-import entity.Drivers;
+import entity.Driver;
 import entity.Line;
 import main.MainRun;
 import repository.AssigmnetDaoImpl;
@@ -33,7 +33,7 @@ public class AssignmentService {
         if (isNullOfEmptyDriverOrLine()) {
             return;
         }
-        Drivers drivers = inputDriverId();
+        Driver drivers = inputDriverId();
 
         int lineNumber = inputLineNumber();
         int indexAgssignmentTableExits = findIndexAgssignmentTableExits(drivers.getId());
@@ -49,7 +49,7 @@ public class AssignmentService {
         }
     }
 
-    private void updateOrAddAssignmentTableExits(int indexAgssignmentTableExitsed, int lineNumber, Drivers drivers) {
+    private void updateOrAddAssignmentTableExits(int indexAgssignmentTableExitsed, int lineNumber, Driver drivers) {
         for (int i = 0; i < lineNumber; i++) {
             Line line = inputLineId(i, drivers);
             int turnNumber = inputTurnNumber(line);
@@ -96,7 +96,7 @@ public class AssignmentService {
         return -1;
     }
 
-    private void createAssignmentTableList(List<LineTurn> lineTurnList, int lineNumber, Drivers drivers) {
+    private void createAssignmentTableList(List<LineTurn> lineTurnList, int lineNumber, Driver drivers) {
         for (int i = 0; i < lineNumber; i++) {
             Line line = inputLineId(i, drivers);
             int turnNumber = inputTurnNumber(line);
@@ -114,9 +114,9 @@ public class AssignmentService {
         }
     }
 
-    private Drivers inputDriverId() {
+    private Driver inputDriverId() {
         System.out.print("Nhập ID của lái xe mà bạn muốn thêm điểm: ");
-        Drivers drivers;
+        Driver drivers;
         do {
             try {
                 int driverId = new Scanner(System.in).nextInt();
@@ -157,7 +157,7 @@ public class AssignmentService {
         return -1;
     }
 
-    private Line inputLineId(int j, Drivers drivers) {
+    private Line inputLineId(int j, Driver drivers) {
         System.out.print("Nhập ID tuyến đường thứ " + (j + 1) + " mà lái xe " + drivers.getFullName() + " lái: ");
         Line line;
         do {

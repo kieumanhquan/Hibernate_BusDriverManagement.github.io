@@ -1,6 +1,6 @@
 package service;
 
-import entity.Drivers;
+import entity.Driver;
 import main.MainRun;
 import dao.DriverDao;
 import repository.DriverDaoImpl;
@@ -15,7 +15,7 @@ public class DriverService {
     public DriverDao driverDao = new DriverDaoImpl();
 
     public void showDriver() {
-        for (Drivers drivers : MainRun.driverList) System.out.println(drivers);
+        for (Driver drivers : MainRun.driverList) System.out.println(drivers);
     }
 
     public void addNewDriver() {
@@ -33,15 +33,15 @@ public class DriverService {
             }
         } while (true);
         for (int i = 0; i < driverNumber; i++) {
-            Drivers drivers = new Drivers();
+            Driver drivers = new Driver();
             drivers.inputInfo();
             MainRun.driverList.add(drivers);
             driverDao.addNewDriver(drivers);
         }
     }
 
-    public Drivers findDriverById(int driverId) {
-        for (Drivers drivers : MainRun.driverList) {
+    public Driver findDriverById(int driverId) {
+        for (Driver drivers : MainRun.driverList) {
             if (drivers.getId() == driverId)
                 return drivers;
         }
@@ -49,7 +49,7 @@ public class DriverService {
     }
 
     public void initializeDriverData() {
-        List<Drivers> driverList = driverDao.getAll();
+        List<Driver> driverList = driverDao.getAll();
         if (!CollectionUtil.isNullOrEmpty(driverList)) {
             MainRun.driverList = driverList;
         } else {

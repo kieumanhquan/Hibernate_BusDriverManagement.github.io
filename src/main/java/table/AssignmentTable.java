@@ -1,6 +1,6 @@
 package table;
 
-import entity.Drivers;
+import entity.Driver;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 public class AssignmentTable {
 
-    private Drivers drivers;
+    private Driver drivers;
 
     private List<LineTurn> lineTurns;
 }

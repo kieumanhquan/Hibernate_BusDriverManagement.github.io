@@ -2,7 +2,7 @@ package main;
 
 
 import table.AssignmentTable;
-import entity.Drivers;
+import entity.Driver;
 import entity.Line;
 import service.AssignmentService;
 import service.DriverService;
@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MainRun {
-    public static List<Drivers> driverList;
+    public static List<Driver> driverList;
     public static List<Line> lineList;
     public static List<AssignmentTable> assignmentTableList;
 

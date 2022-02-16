@@ -14,9 +14,9 @@ import java.io.Serializable;
 public class Assignment implements Serializable {
 
     @Id
-    @ManyToOne(targetEntity = Drivers.class, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = Driver.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "driver_id", nullable = false)
-    private Drivers drivers;
+    private Driver drivers;
 
     @Id
     @ManyToOne(targetEntity = Line.class, fetch = FetchType.EAGER)

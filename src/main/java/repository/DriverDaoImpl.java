@@ -1,7 +1,7 @@
 package repository;
 
 import dao.DriverDao;
-import entity.Drivers;
+import entity.Driver;
 import util.DataUtil;
 import util.HibernateUtil;
 import org.hibernate.Session;
@@ -11,7 +11,7 @@ import java.util.List;
 public class DriverDaoImpl implements DriverDao {
 
     @Override
-    public void addNewDriver(Drivers drivers) {
+    public void addNewDriver(Driver drivers) {
         if (DataUtil.isEmptyOrNull(drivers)) {
             return;
         }
@@ -29,10 +29,10 @@ public class DriverDaoImpl implements DriverDao {
     }
 
     @Override
-    public List<Drivers> getAll(){
+    public List<Driver> getAll(){
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
             session.beginTransaction();
-            return (List<Drivers>) session.createQuery("from Driver").list();
+            return (List<Driver>) session.createQuery("from Driver").list();
         }
         catch (Exception e) {
             e.printStackTrace();
